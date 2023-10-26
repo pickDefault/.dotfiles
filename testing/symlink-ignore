@@ -1,0 +1,4 @@
+.gitignore
+create-symlinks.sh
+symlink-ignore
+.git
