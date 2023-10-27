@@ -98,8 +98,11 @@ set ttimeoutlen=1
 set ttyfast
 
 " Enable search highlighting and instant results
-set hls is " hls = hlsearch, is = incsearch (?)
+set nohls is " hls = hlsearch, is = incsearch (?)
 
 " CtrlP config:
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_mruf_case_sensitive = 1
+
+" Enable fzf (Installed via homebrew, this setting was suggested at 'brew info fzf')
+set rtp+=/opt/homebrew/opt/fzf

@@ -77,11 +77,17 @@ plugins=(
 	colored-man-pages 
 	dircycle
 	tmux
+	fzf
+	fzf-tab
 )
 ZSH_TMUX_AUTOSTART=true
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+# Personal customization
+#	zsh-autocomplete:
+#source /Users/orian/.oh-my-zsh/zsh-plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -150,3 +156,10 @@ autoload -Uz compinit && compinit
 
 # Hide orian@Orian-MacbookPro from agnoster theme
 export DEFAULT_USER=orian
+
+# See https://github.com/Aloxaf/fzf-tab/issues/214
+# Makes fzf-tab trigger at shift-tab instead of tab
+#bindkey "^[[Z" fzf-tab-complete
+#bindkey "^I" expand-or-complete
+
+export FZF_COMPLETION_TRIGGER='"'
