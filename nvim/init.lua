@@ -220,7 +220,16 @@ require('lazy').setup({
   --       Uncomment any of the lines below to enable them.
   -- require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
-
+  {
+      "kylechui/nvim-surround",
+      version = "*", -- Use for stability; omit to use `main` branch for the latest features
+      event = "VeryLazy",
+      config = function()
+          require("nvim-surround").setup({
+              -- Configuration here, or leave empty to use defaults
+          })
+      end
+  }
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
   --    up-to-date with whatever is in the kickstart repo.
@@ -354,8 +363,8 @@ vim.defer_fn(function()
         enable = true,
         lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
         keymaps = {
-          -- You can use the capture groups defined in textobjects.scm
-          ['aa'] = '@parameter.outer',
+            -- You can use the capture groups defined in textobjects.scm
+            ['aa'] = '@parameter.outer',
           ['ia'] = '@parameter.inner',
           ['af'] = '@function.outer',
           ['if'] = '@function.inner',
