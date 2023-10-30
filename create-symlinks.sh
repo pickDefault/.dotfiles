@@ -1,13 +1,18 @@
 #!/bin/bash
 # Creates symlinks for all files in the folder the script is in, except for files listed in .symlink-ignore separated by newline
 # First argument specifies where to place all the symlinks
+
+# Log the date to ~/.dotfiles/symlink_log
 echo $(date) >> ~/.dotfiles/symlink_log
+
+# Generate list of all files in current folder (Without recursing into existing folders) starting with '.'
 filepaths=$(
 	find ~+ ! -path ~+ -name '\.*' -maxdepth 1
 )
 
 for filepath in $filepaths
 do
+	# filepaths contains full paths. The regex in 'sed' makes sure we get the filename only.
 	filename=$(echo $filepath | sed -E 's%.*\/(.+)%\1%g');
 	for fileToIgnore in $(cat ~/.dotfiles/symlink-ignore)
 	do
