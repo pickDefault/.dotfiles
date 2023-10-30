@@ -305,6 +305,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {
+    layout_config = {
+      horizontal = {
+        preview_cutoff = 5,
+      },
+    },
     mappings = {
       i = {
         ['<C-u>'] = false,
