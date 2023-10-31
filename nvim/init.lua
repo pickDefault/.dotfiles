@@ -229,38 +229,70 @@ require('lazy').setup({
               -- Configuration here, or leave empty to use defaults
           })
       end
-  }
+  },
+--    {
+--  "m4xshen/autoclose.nvim",
+--  config = function()
+--      require("autoclose.nvim").setup({
+--      keys = {
+--      ["("] = { escape = false, close = true, pair = "()" },
+--      ["["] = { escape = false, close = true, pair = "[]" },
+--      ["{"] = { escape = false, close = true, pair = "{}" },
+--
+--      [">"] = { escape = true, close = false, pair = "<>" },
+--      [")"] = { escape = true, close = false, pair = "()" },
+--      ["]"] = { escape = true, close = false, pair = "[]" },
+--      ["}"] = { escape = true, close = false, pair = "{}" },
+--
+--      ['"'] = { escape = true, close = true, pair = '""' },
+--      ["'"] = { escape = true, close = true, pair = "''" },
+--      ["`"] = { escape = true, close = true, pair = "``" },
+--   },
+--   options = {
+--      disabled_filetypes = { "text" },
+--      disable_when_touch = false,
+--      touch_regex = "[%w(%[{]",
+--      pair_spaces = false,
+--      auto_indent = true,
+--      disable_command_mode = false,
+--   },
+--      })
+--  end
+--},
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
   --    up-to-date with whatever is in the kickstart repo.
-  --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
+  --    Uncomment the following line and add your plugins to `lua/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
+   { import = 'plugins' },
 }, {})
 
--- [[ Setting options ]]
--- See `:help vim.o`
--- NOTE: You can change these options as you wish!
+-- [[ setting options ]]
+-- see `:help vim.o`
+-- note: you can change these options as you wish!
 
--- Set highlight on search
+-- set highlight on search
 vim.o.hlsearch = false
 
--- Make line numbers default
+-- make line numbers relative
+vim.wo.relativenumber = true
+
+-- make line numbers default
 vim.wo.number = true
 
--- Enable mouse mode
+-- enable mouse mode
 vim.o.mouse = 'a'
 
--- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
+-- sync clipboard between os and neovim.
+--  remove this option if you want your os clipboard to remain independent.
+--  see `:help 'clipboard'`
 vim.o.clipboard = 'unnamedplus'
 
--- Enable break indent
+-- enable break indent
 vim.o.breakindent = true
 
--- Save undo history
+-- save undo history
 vim.o.undofile = true
 
 -- Case-insensitive searching UNLESS \C or capital in search
@@ -347,7 +379,7 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
+    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'java' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
