@@ -165,3 +165,9 @@ export DEFAULT_USER=orian
 #bindkey "^I" expand-or-complete
 
 export FZF_COMPLETION_TRIGGER='"'
+
+# https://github.com/Aloxaf/fzf-tab/issues/104 For the two next commands:
+    # Enable fzf-tab to include directories ., ..
+zstyle ':completion:*' special-dirs true
+    # Enable fzf-tab to include hidden files
+setopt GLOB_DOTS
