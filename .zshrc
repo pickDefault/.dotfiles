@@ -177,3 +177,5 @@ setopt GLOB_DOTS
 FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
 
+# Alias for showing current track on tmux status-bar:
+alias music="$(realpath ~/.dotfiles/tmux-scripts/tmux.show-music.sh)"
