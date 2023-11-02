@@ -179,3 +179,5 @@ FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
 
 # Alias for showing current track on tmux status-bar:
 alias music="$(realpath ~/.dotfiles/tmux-scripts/tmux.show-music.sh)"
+# In fzf, multi-select with Ctrl-Space and remove selection with Ctrl-X
+export FZF_DEFAULT_OPTS="--bind ctrl-space:select,ctrl-x:deselect -m"
