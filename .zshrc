@@ -171,3 +171,9 @@ export FZF_COMPLETION_TRIGGER='"'
 zstyle ':completion:*' special-dirs true
     # Enable fzf-tab to include hidden files
 setopt GLOB_DOTS
+
+# https://github.com/junegunn/fzf/issues/634 for the following:
+# Enable fzf to show hidden files (Both in C-T and normal usage)
+FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
+
