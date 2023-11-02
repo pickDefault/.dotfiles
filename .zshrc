@@ -114,6 +114,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias srm="rm -iv"
 alias srmdir="rm -r -iv"
+# MAC ONLY: Alias for showing current track on tmux status-bar:
+alias music="$(realpath ~/.dotfiles/tmux-scripts/tmux.show-music.sh)"
+# MAC ONLY: Alias for navigating to ~/Desktop/Drive:
+alias drive="cd ~/Desktop/Drive"
+
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -156,7 +161,7 @@ autoload -Uz compinit && compinit
 ## PROMPT='${vcs_info_msg_0_}%# '
 #zstyle ':vcs_info:git:*' formats '%b'
 
-# Hide orian@Orian-MacbookPro from agnoster theme
+# MAC ONLY: Hide orian@Orian-MacbookPro from agnoster theme
 export DEFAULT_USER=orian
 
 # See https://github.com/Aloxaf/fzf-tab/issues/214
@@ -177,7 +182,5 @@ setopt GLOB_DOTS
 FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g "" 2> /dev/null'
 FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g "" 2> /dev/null'
 
-# Alias for showing current track on tmux status-bar:
-alias music="$(realpath ~/.dotfiles/tmux-scripts/tmux.show-music.sh)"
 # In fzf, multi-select with Ctrl-Space and remove selection with Ctrl-X
 export FZF_DEFAULT_OPTS="--bind ctrl-space:select,ctrl-x:deselect -m"
