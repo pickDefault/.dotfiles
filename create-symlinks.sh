@@ -1,5 +1,4 @@
 #!/bin/bash
-echo $HOME
 # Creates symlinks for all *dot* files in the folder the script is in, except for files listed in .symlink-ignore separated by newline
 # First argument specifies where to place all the symlinks
 
