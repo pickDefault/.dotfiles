@@ -118,8 +118,10 @@ alias srmdir="rm -r -iv"
 alias music="$(realpath ~/.dotfiles/tmux-scripts/tmux.show-music.sh)"
 # MAC ONLY: Alias for navigating to ~/Desktop/Drive:
 alias drive="cd ~/Desktop/Drive"
-
-
+# Encrypting and decrypting files:
+# Must be used with -in, -out flags
+alias enc="openssl enc -aes-256-cbc -salt"
+alias decrypt="openssl enc -d -aes-256-cbc"
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/orian/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
