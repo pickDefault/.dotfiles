@@ -174,8 +174,8 @@ setopt GLOB_DOTS
 
 # https://github.com/junegunn/fzf/issues/634 for the following:
 # Enable fzf to show hidden files (Both in C-T and normal usage)
-FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
-FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
+FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g "" 2> /dev/null'
+FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g "" 2> /dev/null'
 
 # Alias for showing current track on tmux status-bar:
 alias music="$(realpath ~/.dotfiles/tmux-scripts/tmux.show-music.sh)"
