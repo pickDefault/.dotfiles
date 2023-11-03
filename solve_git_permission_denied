@@ -1,0 +1,5 @@
+The solution is:
+Make sure ssh-agent is running:
+	eval "$(ssh-agent -s)"
+ssh-add returned an error before, now it should be fine
+Then ssh-add <path-to-private-key>
