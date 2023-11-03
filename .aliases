@@ -1,6 +1,0 @@
-# Personal log for keeping track of my commandline aliases
-# Columns:
-# alias	refers-to	notes 
-c	'colored'	See colored-man-pages, an oh-my-zsh plugin.3
-gitlog	'git log --all --graph --decorate'	Nicer version of `git log`
-git	'/opt/homebrew/bin/git'	Installed git via homebrew, but the apple version was still executed when running 'git'
