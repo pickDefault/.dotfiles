@@ -181,8 +181,8 @@ setopt GLOB_DOTS
 
 # https://github.com/junegunn/fzf/issues/634 for the following:
 # Enable fzf to show hidden files (Both in C-T and normal usage)
-FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g "" 2> /dev/null'
-FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g "" 2> /dev/null'
+export FZF_DEFAULT_COMMAND='find . \! \( -type d -path ./.git -prune \) \! -type d \! -name '\''*.tags'\'' -printf '\''%P\n'\' #'ag --hidden --ignore .git -g "" 2> /dev/null'
+export FZF_CTRL_T_COMMAND='find . \! \( -type d -path ./.git -prune \) \! -type d \! -name '\''*.tags'\'' -printf '\''%P\n'\' #'ag --hidden --ignore .git -g "" 2> /dev/null'
 
 # In fzf, multi-select with Ctrl-Space and remove selection with Ctrl-X
-export FZF_DEFAULT_OPTS="--bind ctrl-space:select,ctrl-x:deselect -m"
+export FZF_DEFAULT_OPTS="--bind ctrl-space:select,ctrl-x:deselect,tab:down,shift-tab:up -m"

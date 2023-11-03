@@ -1,3 +1,5 @@
 [user]
 	email = orian755@gmail.com
 	name = pickDefault
+[core]
+	editor = vim
