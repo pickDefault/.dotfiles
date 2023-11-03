@@ -186,3 +186,11 @@ export FZF_CTRL_T_COMMAND='find . \! \( -type d -path ./.git -prune \) \! -type 
 
 # In fzf, multi-select with Ctrl-Space and remove selection with Ctrl-X
 export FZF_DEFAULT_OPTS="--bind ctrl-space:select,ctrl-x:deselect,tab:down,shift-tab:up -m"
+
+# https://unix.stackexchange.com/questions/108182/tmux-conf-prefix-depends-on-whether-session-is-remote
+# If machine is in a remote session, change the prefix
+if [[ -n "$SSH_CLIENT" && -n "$TMUX" ]] ; then
+  tmux unbind c-a
+  tmux set -g prefix c-b
+  tmux bind c-b send-prefix
+fi
