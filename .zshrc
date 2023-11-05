@@ -185,7 +185,7 @@ export FZF_DEFAULT_COMMAND='find . \! \( -type d -path ./.git -prune \) \! -type
 export FZF_CTRL_T_COMMAND='find . \! \( -type d -path ./.git -prune \) \! -type d \! -name '\''*.tags'\'' -printf '\''%P\n'\' #'ag --hidden --ignore .git -g "" 2> /dev/null'
 
 # In fzf, multi-select with Ctrl-Space and remove selection with Ctrl-X
-export FZF_DEFAULT_OPTS="--bind ctrl-space:select,ctrl-x:deselect,tab:down,shift-tab:up -m"
+export FZF_DEFAULT_OPTS="-m -x --bind ctrl-space:select,ctrl-x:deselect,tab:down,shift-tab:up"
 
 # https://unix.stackexchange.com/questions/108182/tmux-conf-prefix-depends-on-whether-session-is-remote
 # If machine is in a remote session, change the prefix
