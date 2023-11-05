@@ -36,7 +36,7 @@ do
 		fi
 	done	
 
-	ln -s $filepath $option/$filename 2>> $HOME/.dotfiles/symlink_log && echo "Created symlink for $filename in path $option.";
+	ln -sf $filepath $option/$filename 2>> $HOME/.dotfiles/symlink_log && echo "Created symlink for $filename in path $option.";
 done
 
 # Add newline after each write to the log:
