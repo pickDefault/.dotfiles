@@ -114,6 +114,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias srm="rm -iv"
 alias srmdir="rm -r -iv"
+alias smv="mv -iv"
 # MAC ONLY: Alias for showing current track on tmux status-bar:
 alias music="$(realpath ~/.dotfiles/tmux-scripts/tmux.show-music.sh)"
 # MAC ONLY: Alias for navigating to ~/Desktop/Drive:
@@ -182,7 +183,7 @@ setopt GLOB_DOTS
 # https://github.com/junegunn/fzf/issues/634 for the following:
 # Enable fzf to show hidden files (Both in C-T and normal usage)
 export FZF_DEFAULT_COMMAND='find . \! \( -type d -path ./.git -prune \) \! -type d \! -name '\''*.tags'\'' -printf '\''%P\n'\' #'ag --hidden --ignore .git -g "" 2> /dev/null'
-export FZF_CTRL_T_COMMAND='find . \! \( -type d -path ./.git -prune \) \! -type d \! -name '\''*.tags'\'' -printf '\''%P\n'\' #'ag --hidden --ignore .git -g "" 2> /dev/null'
+export FZF_CTRL_T_COMMAND='find . \! \( -type d -path ./.git -prune \) \! -type d \! -name '\''*.tags'\'' 2> /dev/null' #'ag --hidden --ignore .git -g "" 2> /dev/null'
 
 # In fzf, multi-select with Ctrl-Space and remove selection with Ctrl-X
 export FZF_DEFAULT_OPTS="-m -x --bind ctrl-space:select,ctrl-x:deselect,tab:down,shift-tab:up"
