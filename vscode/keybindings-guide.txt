@@ -1,0 +1,19 @@
+-- Mnemonical shortcuts:
+    -- Ctrl + S to [S]plit
+        -- D to [D]uplicate
+            -- H, J, K, L to choose where to split
+        -- M to [M]ove
+            -- H, J, K, L to choose where to split
+    -- Ctrl + W to move and focus between [W]indows
+        -- H, J, K, L to move between split editors
+        -- Z to focus editor group
+        -- 0-9 to select window
+        -- 
+    -- Ctrl + Shift + = (Which is actually Ctrl + '+') to increase size
+    -- Ctrl + - to decrease size
+
+    -- Space to enter code navigation and manipulation
+        -- Space + g + d - [G]o to [D]efiniton
+        -- Space + r + f - [R]e[F]actor
+        -- Space + r + s - [R]ename [S]ymbol
+        // todo: type definition, go to reference?
