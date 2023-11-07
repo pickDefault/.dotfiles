@@ -51,6 +51,27 @@
   "workbench.settings.applyToAllProfiles": [
     "editor.lineNumbers"
   ],
-  "editor.fontSize": 14
+  "editor.fontSize": 14,
+  // Removes the close tab button. Use Control + W instead.
+  "workbench.editor.tabCloseButton": "off",
+  // Removes the useless "breadcrumbs" tree below our tabs
+  "breadcrumbs.enabled": false,
+  "editor.overviewRulerBorder": false,
+  // Add some padding to the top and bottom of our file
+  "editor.padding.bottom": 14,
+  "editor.padding.top": 14,
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.codeLens": false,
+  // OPTIONAL: Removes the glyph margin for breakpoints
+  // and other symbols that most people don't use.
+  // If you use those things, feel free to enable this!
+  "editor.glyphMargin": false,
+  "editor.foldingHighlight": true,
+  "editor.renderLineHighlight": "none hello",
+  // OPTIONAL: Disables parameter hints.
+  // If you'd prefer to receive hints, leave these
+  // settings on!
+  // "editor.parameterHints.enabled": false,
+  // "editor.inlayHints.enabled": "off",
 }
 

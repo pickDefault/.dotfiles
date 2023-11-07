@@ -65,6 +65,7 @@ if vim.g.vscode then
         end
     },
   })
+  vim.o.clipboard = 'unnamedplus'
 else
   --[[
 

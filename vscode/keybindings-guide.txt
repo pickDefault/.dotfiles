@@ -1,5 +1,6 @@
 -- Mnemonical shortcuts:
     -- Ctrl + S to [S]plit
+        -- J to [J]oin current editor side by side
         -- D to [D]uplicate
             -- H, J, K, L to choose where to split
         -- M to [M]ove
