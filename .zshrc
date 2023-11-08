@@ -191,6 +191,6 @@ export FZF_DEFAULT_OPTS="-m -x --bind ctrl-space:select,ctrl-x:deselect,tab:down
 # If machine is in a remote session, change the prefix
 if [[ -n "$SSH_CLIENT" && -n "$TMUX" ]] ; then
   tmux unbind c-a
-  tmux set -g prefix c-b
-  tmux bind c-b send-prefix
+  tmux set -g prefix c-q
+  tmux bind c-q send-prefix
 fi
