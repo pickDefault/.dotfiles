@@ -115,6 +115,7 @@ source $ZSH/oh-my-zsh.sh
 alias srm="rm -iv"
 alias srmdir="rm -r -iv"
 alias smv="mv -iv"
+alias c="code"
 # MAC ONLY: Alias for showing current track on tmux status-bar:
 alias music="$(realpath ~/.dotfiles/tmux-scripts/tmux.show-music.sh)"
 # MAC ONLY: Alias for navigating to ~/Desktop/Drive:
@@ -190,8 +191,8 @@ export FZF_DEFAULT_OPTS="-m -x --bind ctrl-space:select,ctrl-x:deselect,tab:down
 
 # https://unix.stackexchange.com/questions/108182/tmux-conf-prefix-depends-on-whether-session-is-remote
 # If machine is in a remote session, change the prefix
-if [[ -n "$SSH_CLIENT" && -n "$TMUX" ]] ; then
-  tmux unbind c-a
-  tmux set -g prefix c-q
-  tmux bind c-q send-prefix
-fi
+# if [[ -n "$SSH_CLIENT" && -n "$TMUX" ]] ; then
+#   tmux unbind c-a
+#   tmux set -g prefix c-q
+#   tmux bind c-q send-prefix
+# fi
