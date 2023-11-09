@@ -115,6 +115,7 @@ source $ZSH/oh-my-zsh.sh
 alias srm="rm -iv"
 alias srmdir="rm -r -iv"
 alias smv="mv -iv"
+alias c="code"
 # MAC ONLY: Alias for showing current track on tmux status-bar:
 alias music="$(realpath ~/.dotfiles/tmux-scripts/tmux.show-music.sh)"
 # MAC ONLY: Alias for navigating to ~/Desktop/Drive:
