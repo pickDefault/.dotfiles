@@ -6,7 +6,7 @@
   "editor.minimap.enabled": false,
   "python.defaultInterpreterPath": "/Users/orian/Desktop/Drive/SQL/sql_env/bin/python",
   "terminal.integrated.enableMultiLinePasteWarning": false,
-  "window.zoomLevel": 2,
+  "window.zoomLevel": 1,
   "workbench.colorTheme": "Visual Studio Dark",
   "terminal.integrated.env.osx": {
   },
@@ -67,11 +67,18 @@
   // If you use those things, feel free to enable this!
   "editor.glyphMargin": false,
   "editor.foldingHighlight": true,
-  "editor.renderLineHighlight": "none hello",
+  "editor.renderLineHighlight": "none",
   // OPTIONAL: Disables parameter hints.
   // If you'd prefer to receive hints, leave these
   // settings on!
   // "editor.parameterHints.enabled": false,
   // "editor.inlayHints.enabled": "off",
+  
+  // APC Customize UI++ :
+    "window.titleBarStyle": "native",
+    "apc.electron": {
+          "titleBarStyle": "hidden",
+        },
+        "C_Cpp.intelliSenseEngine": "disabled",
 }
 

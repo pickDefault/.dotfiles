@@ -34,43 +34,43 @@
         "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
     },
     {
-        "key": "ctrl+w 0",
+        "key": "cmd+0",
         "command": "workbench.action.lastEditorInGroup"
     },
     {
-        "key": "ctrl+w 1",
+        "key": "cmd+1",
         "command": "workbench.action.openEditorAtIndex1"
     },
     {
-        "key": "ctrl+w 2",
+        "key": "cmd+2",
         "command": "workbench.action.openEditorAtIndex2"
     },
     {
-        "key": "ctrl+w 3",
+        "key": "cmd+3",
         "command": "workbench.action.openEditorAtIndex3"
     },
     {
-        "key": "ctrl+w 4",
+        "key": "cmd+4",
         "command": "workbench.action.openEditorAtIndex4"
     },
     {
-        "key": "ctrl+w 5",
+        "key": "cmd+5",
         "command": "workbench.action.openEditorAtIndex5"
     },
     {
-        "key": "ctrl+w 6",
+        "key": "cmd+6",
         "command": "workbench.action.openEditorAtIndex6"
     },
     {
-        "key": "ctrl+w 7",
+        "key": "cmd+7",
         "command": "workbench.action.openEditorAtIndex7"
     },
     {
-        "key": "ctrl+w 8",
+        "key": "cmd+8",
         "command": "workbench.action.openEditorAtIndex8"
     },
     {
-        "key": "ctrl+w 9",
+        "key": "cmd+9",
         "command": "workbench.action.openEditorAtIndex9"
     },
     {
@@ -141,7 +141,7 @@
     },
     // Resize split editors
     {
-        "key": "ctrl+shift+=",
+        "key": "ctrl+=",
         "command": "workbench.action.increaseViewSize"
     },
     {
@@ -182,6 +182,14 @@
         "command": "workbench.action.moveEditorToPreviousGroup"
     },
     {
+        "key": "ctrl+s j",
+        "command": "workbench.action.toggleSplitEditorInGroup",
+    },
+    {
+        "key": "ctrl+s shift+j",
+        "command": "workbench.action.toggleSplitEditorInGroupLayout",
+    },
+    {
         "key": "shift+cmd+d",
         "command": "-workbench.view.debug",
         "when": "viewContainer.workbench.view.debug.enabled"
@@ -193,7 +201,6 @@
     {
         "key": "ctrl+w k",
         "command": "workbench.action.navigateUp",
-        "when": "!terminalFocus"
     },
     {
         "key": "ctrl+w k",
@@ -203,7 +210,6 @@
     {
         "key": "ctrl+w j",
         "command": "workbench.action.navigateDown",
-        "when": "!terminalFocus"
     },
     {
         "key": "ctrl+w j",
@@ -213,7 +219,6 @@
     {
         "key": "ctrl+w h",
         "command": "workbench.action.navigateLeft",
-        "when": "!terminalFocus"
     },
     {
         "key": "ctrl+w h",
@@ -223,7 +228,6 @@
     {
         "key": "ctrl+w l",
         "command": "workbench.action.navigateRight",
-        "when": "!terminalFocus"
     },
     {
         "key": "ctrl+w l",
@@ -251,13 +255,23 @@
         "when": "editorTextFocus && neovim.mode == 'normal'"
     },
     {
-        "key": "ctrl+s j",
-        "command": "workbench.action.joinEditorInGroup",
-        "when": "sideBySideEditorActive"
-    },
-    {
         "key": "cmd+k shift+cmd+\\",
         "command": "-workbench.action.joinEditorInGroup",
         "when": "sideBySideEditorActive"
+    },
+    {
+        "key": "cmd+k",
+        "command": "-workbench.action.terminal.clear"
+    },
+    {
+        "key": "ctrl+o",
+        "command": "-vscode-neovim.escape",
+        "when": "editorTextFocus && neovim.ctrlKeysInsert && neovim.mode == 'insert'"
+    },
+    {
+        "key": "ctrl+o",
+        "command": "vscode-neovim.escape",
+        "when": "editorTextFocus",
+        "args": "<C-o>"
     },
 ]
