@@ -152,8 +152,8 @@ export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color? [ (Y
 #	Customize vi-mode plugin
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 VI_MODE_SET_CURSOR=true
-MODE_INDICATOR="%F{white}+%f"
-INSERT_MODE_INDICATOR="%F{yellow}+%f"
+#MODE_INDICATOR="%F{white}+%f"
+#INSERT_MODE_INDICATOR="%F{yellow}+%f"
 #	zsh's tab completion library for Git and include branch name in zsh prompt
 # (https://git-scm.com/book/en/v2/Appendix-A%3A-Git-in-Other-Environments-Git-in-Zsh)
 autoload -Uz compinit && compinit

@@ -1,4 +1,7 @@
 if vim.g.vscode then
+  vim.g.mapleader = ' '
+  vim.g.maplocalleader = ' '
+
   local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
   if not vim.loop.fs_stat(lazypath) then
     vim.fn.system {
@@ -63,6 +66,10 @@ if vim.g.vscode then
                 -- Configuration here, or leave empty to use defaults
             })
         end
+    },
+    {
+        "ggandor/lightspeed.nvim",
+        event = "BufRead",
     },
   })
   vim.o.clipboard = 'unnamedplus'
