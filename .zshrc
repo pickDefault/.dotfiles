@@ -4,6 +4,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+if [[ "${hostname}" = "Orians-MacBook-Pro.local" ]]; then
+    ./.zshrc-personal
+fi
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -116,29 +119,11 @@ alias srm="rm -iv"
 alias srmdir="rm -r -iv"
 alias smv="mv -iv"
 alias c="code"
-# MAC ONLY: Alias for showing current track on tmux status-bar:
-alias music="$(realpath ~/.dotfiles/tmux-scripts/tmux.show-music.sh)"
-# MAC ONLY: Alias for navigating to ~/Desktop/Drive:
-alias drive="cd ~/Desktop/Drive"
 # Encrypting and decrypting files:
 # Must be used with -in, -out flags
 alias enc="openssl enc -aes-256-cbc -salt"
 alias decrypt="openssl enc -d -aes-256-cbc"
 alias bk="cd $OLDPWD"
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/orian/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/orian/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/orian/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/orian/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 # Personal customizations;
 # 	Case-insensitive globbing
@@ -153,8 +138,8 @@ export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color? [ (Y
 #	Customize vi-mode plugin
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 VI_MODE_SET_CURSOR=true
-MODE_INDICATOR="%F{white}+%f"
-INSERT_MODE_INDICATOR="%F{yellow}+%f"
+#MODE_INDICATOR="%F{white}+%f"
+#INSERT_MODE_INDICATOR="%F{yellow}+%f"
 #	zsh's tab completion library for Git and include branch name in zsh prompt
 # (https://git-scm.com/book/en/v2/Appendix-A%3A-Git-in-Other-Environments-Git-in-Zsh)
 autoload -Uz compinit && compinit
@@ -166,8 +151,6 @@ autoload -Uz compinit && compinit
 ## PROMPT='${vcs_info_msg_0_}%# '
 #zstyle ':vcs_info:git:*' formats '%b'
 
-# MAC ONLY: Hide orian@Orian-MacbookPro from agnoster theme
-export DEFAULT_USER=orian
 
 # See https://github.com/Aloxaf/fzf-tab/issues/214
 # Makes fzf-tab trigger at shift-tab instead of tab

@@ -34,43 +34,43 @@
         "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
     },
     {
-        "key": "ctrl+w 0",
+        "key": "cmd+0",
         "command": "workbench.action.lastEditorInGroup"
     },
     {
-        "key": "ctrl+w 1",
+        "key": "cmd+1",
         "command": "workbench.action.openEditorAtIndex1"
     },
     {
-        "key": "ctrl+w 2",
+        "key": "cmd+2",
         "command": "workbench.action.openEditorAtIndex2"
     },
     {
-        "key": "ctrl+w 3",
+        "key": "cmd+3",
         "command": "workbench.action.openEditorAtIndex3"
     },
     {
-        "key": "ctrl+w 4",
+        "key": "cmd+4",
         "command": "workbench.action.openEditorAtIndex4"
     },
     {
-        "key": "ctrl+w 5",
+        "key": "cmd+5",
         "command": "workbench.action.openEditorAtIndex5"
     },
     {
-        "key": "ctrl+w 6",
+        "key": "cmd+6",
         "command": "workbench.action.openEditorAtIndex6"
     },
     {
-        "key": "ctrl+w 7",
+        "key": "cmd+7",
         "command": "workbench.action.openEditorAtIndex7"
     },
     {
-        "key": "ctrl+w 8",
+        "key": "cmd+8",
         "command": "workbench.action.openEditorAtIndex8"
     },
     {
-        "key": "ctrl+w 9",
+        "key": "cmd+9",
         "command": "workbench.action.openEditorAtIndex9"
     },
     {
@@ -106,7 +106,7 @@
         "command": "-workbench.action.lastEditorInGroup"
     },
     {
-        "key": "space g d",
+        "key": "ctrl+g d",
         "command": "editor.action.revealDefinition",
         "when": "editorTextFocus && neovim.mode == 'normal'"
     },
@@ -141,7 +141,7 @@
     },
     // Resize split editors
     {
-        "key": "ctrl+shift+=",
+        "key": "ctrl+=",
         "command": "workbench.action.increaseViewSize"
     },
     {
@@ -182,6 +182,15 @@
         "command": "workbench.action.moveEditorToPreviousGroup"
     },
     {
+        "key": "ctrl+s j",
+        "command": "workbench.action.toggleSplitEditorInGroup",
+        "when": "activeEditorCanSplitInGroup || activeEditorCanRevert",
+    },
+    {
+        "key": "ctrl+s shift+j",
+        "command": "workbench.action.toggleSplitEditorInGroupLayout",
+    },
+    {
         "key": "shift+cmd+d",
         "command": "-workbench.view.debug",
         "when": "viewContainer.workbench.view.debug.enabled"
@@ -193,7 +202,7 @@
     {
         "key": "ctrl+w k",
         "command": "workbench.action.navigateUp",
-        "when": "!terminalFocus"
+        "when": "neovim.mode != 'insert'"
     },
     {
         "key": "ctrl+w k",
@@ -203,7 +212,7 @@
     {
         "key": "ctrl+w j",
         "command": "workbench.action.navigateDown",
-        "when": "!terminalFocus"
+        "when": "neovim.mode != 'insert'"
     },
     {
         "key": "ctrl+w j",
@@ -213,7 +222,7 @@
     {
         "key": "ctrl+w h",
         "command": "workbench.action.navigateLeft",
-        "when": "!terminalFocus"
+        "when": "neovim.mode != 'insert'"
     },
     {
         "key": "ctrl+w h",
@@ -223,7 +232,7 @@
     {
         "key": "ctrl+w l",
         "command": "workbench.action.navigateRight",
-        "when": "!terminalFocus"
+        "when": "neovim.mode != 'insert'"
     },
     {
         "key": "ctrl+w l",
@@ -233,7 +242,7 @@
     {
         "key": "ctrl+w z",
         "command": "workbench.action.toggleMaximizeEditorGroup",
-        "when": "maximizedEditorGroup || multipleEditorGroups"
+        "when": "maximizedEditorGroup || multipleEditorGroups && neovim.mode != 'insert'"
     },
     {
         "key": "cmd+k cmd+m",
@@ -241,23 +250,178 @@
         "when": "maximizedEditorGroup || multipleEditorGroups"
     },
     {
-        "key": "space r f",
+        "key": "shift+space r f",
         "command": "editor.action.refactor",
         "when": "editorTextFocus && neovim.mode == 'normal'"
     },
     {
-        "key": "space r s",
+        "key": "shift+space r s",
         "command": "editor.action.rename",
         "when": "editorTextFocus && neovim.mode == 'normal'"
-    },
-    {
-        "key": "ctrl+s j",
-        "command": "workbench.action.joinEditorInGroup",
-        "when": "sideBySideEditorActive"
     },
     {
         "key": "cmd+k shift+cmd+\\",
         "command": "-workbench.action.joinEditorInGroup",
         "when": "sideBySideEditorActive"
     },
+    {
+        "key": "cmd+k",
+        "command": "-workbench.action.terminal.clear"
+    },
+    {
+        "key": "ctrl+o",
+        "command": "-vscode-neovim.escape",
+        "when": "editorTextFocus && neovim.ctrlKeysInsert && neovim.mode == 'insert'"
+    },
+    {
+        "key": "ctrl+o",
+        "command": "vscode-neovim.escape",
+        "when": "editorTextFocus",
+        "args": "<C-o>"
+    },
+    {
+        "key": "alt+l",
+        "command": "editor.action.wordHighlight.next",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "f7",
+        "command": "-editor.action.wordHighlight.next",
+        "when": "editorTextFocus && hasWordHighlights"
+    },
+    {
+        "key": "alt+h",
+        "command": "editor.action.wordHighlight.prev",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+f7",
+        "command": "-editor.action.wordHighlight.prev",
+        "when": "editorTextFocus && hasWordHighlights"
+    },
+    {
+        "key": "alt+h",
+        "command": "-testing.toggleTestingPeekHistory",
+        "when": "testing.isPeekVisible"
+    },
+    {
+        "key": "cmd+/",
+        "command": "editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly && neovim.mode != 'cmdline'"
+    },
+    {
+        "key": "cmd+/",
+        "command": "-editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+cmd+r",
+        "command": "workbench.action.openRecent"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.openRecent"
+    },
+    {
+        "key": "shift+cmd+r",
+        "command": "workbench.action.terminal.goToRecentDirectory",
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "cmd+g",
+        "command": "-workbench.action.terminal.goToRecentDirectory",
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "cmd+/",
+        "command": "editor.action.blockComment",
+        "when": "editorHasSelection && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+alt+a",
+        "command": "-editor.action.blockComment",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+k cmd+i",
+        "command": "-editor.debug.action.showDebugHover",
+        "when": "editorTextFocus && inDebugMode"
+    },
+    {
+        "key": "ctrl+g i",
+        "command": "editor.action.goToImplementation",
+        "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor && neovim.mode == 'normal'"
+    },
+    {
+        "key": "cmd+f12",
+        "command": "-editor.action.goToImplementation",
+        "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+g r",
+        "command": "editor.action.goToReferences",
+        "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor && neovim.mode == 'normal'"
+    },
+    {
+        "key": "shift+f12",
+        "command": "-editor.action.goToReferences",
+        "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+    },
+    {
+        "key": "ctrl+g s",
+        "command": "workbench.action.gotoSymbol",
+        "when": "editorTextFocus && !accessibilityHelpIsShown && !accessibleViewIsShown && neovim.mode == 'normal'"
+    },
+    {
+        "key": "shift+cmd+o",
+        "command": "-workbench.action.gotoSymbol",
+        "when": "!accessibilityHelpIsShown && !accessibleViewIsShown"
+    },
+    {
+        "key": "ctrl+g shift+s",
+        "command": "workbench.action.showAllSymbols",
+        "when": "editorTextFocus && neovim.mode == 'normal'"
+    },
+    {
+        "key": "cmd+t",
+        "command": "-workbench.action.showAllSymbols"
+    },
+    {
+        "key": "g g",
+        "command": "-list.focusFirst",
+        "when": "listFocus && !inputFocus"
+    },
+    {
+        "key": "ctrl+g h",
+        "command": "editor.action.showHover",
+        "when": "editorTextFocus && neovim.mode == 'normal'"
+    },
+    {
+        "key": "cmd+k cmd+i",
+        "command": "-editor.action.showHover",
+        "when": "editorTextFocus"
+    },
+    /* {
+        "key": "g g",
+        "command": "vscode-neovim.send",
+        "when": "editorTextFocus && neovim.mode == 'normal'",
+        "args": "gg"
+    }, */
+    {
+        "key": "ctrl+g e",
+        "command": "vscode-neovim.send",
+        "when": "editorTextFocus && neovim.mode == 'normal'",
+        "args": "ge"
+    },
+    {
+        "key": "ctrl+g shift+e",
+        "command": "vscode-neovim.send",
+        "when": "editorTextFocus && neovim.mode == 'normal'",
+        "args": "gE"
+    },
+    /* {
+        "key": "ctrl+w",
+        "command": "",
+        "when": ""
+    } */
 ]

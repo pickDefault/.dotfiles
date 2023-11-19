@@ -1,4 +1,8 @@
 if vim.g.vscode then
+  vim.g.mapleader = ' '
+  vim.g.maplocalleader = ' '
+  vim.fn.VSCodeExtensionNotify('visible-range') -- https://github.com/vscode-neovim/vscode-neovim/pull/869 recommended on vscode-neovim from lightning-speed README.md
+  
   local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
   if not vim.loop.fs_stat(lazypath) then
     vim.fn.system {
@@ -64,8 +68,17 @@ if vim.g.vscode then
             })
         end
     },
+    {
+        "ggandor/lightspeed.nvim",
+        event = "BufRead",
+    },
   })
   vim.o.clipboard = 'unnamedplus'
+
+  -- Import vim-style configuration: 
+
+  local vimrc = vim.fn.stdpath("config") .. "/vimrc.vim"
+  vim.cmd.source(vimrc)
 else
   --[[
 
@@ -681,6 +694,8 @@ else
       { name = 'luasnip' },
     },
   }
+  local vimrc = vim.fn.stdpath("config") .. "/vimrc.vim"
+  vim.cmd.source(vimrc)
 
   -- The line beneath this is called `modeline`. See `:help modeline`
   -- vim: ts=2 sts=2 sw=2 et
