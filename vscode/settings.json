@@ -7,7 +7,7 @@
   "python.defaultInterpreterPath": "/Users/orian/Desktop/Drive/SQL/sql_env/bin/python",
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "window.zoomLevel": 1,
-  "workbench.colorTheme": "Visual Studio Dark",
+  "workbench.colorTheme": "Monokai",
   "terminal.integrated.env.osx": {
   },
   "extensions.experimental.affinity": {
@@ -44,14 +44,16 @@
   },
   // INTEGRATED TERMINAL SETTINGS:
   "editor.fontFamily": "'DejaVu Sans Mono for Powerline'",
-  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.rightClickBehavior": "nothing",
   
   // editor?
   "editor.lineNumbers": "relative",
   "workbench.settings.applyToAllProfiles": [
-    "editor.lineNumbers"
+    "editor.lineNumbers",
+    "clangd.path"
   ],
-  "editor.fontSize": 14,
+  "editor.fontSize": 16,
   // Removes the close tab button. Use Control + W instead.
   "workbench.editor.tabCloseButton": "off",
   // Removes the useless "breadcrumbs" tree below our tabs
@@ -79,6 +81,19 @@
     "apc.electron": {
           "titleBarStyle": "hidden",
         },
-        "C_Cpp.intelliSenseEngine": "disabled",
+
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "task.allowAutomaticTasks": "on",
+    "[shellscript]": {
+      "bashIde.explainshellEndpoint": "http://localhost:5000",
+      "files.eol": "\n"
+    },
+    "clangd.checkUpdates": true,
+    "clangd.path": "/opt/homebrew/opt/llvm/bin/clangd",
+    "settingsSync.ignoredSettings": [
+      "-clangd.path"
+    ],
+    "git.openRepositoryInParentFolders": "never",
+    "remote.SSH.configFile": "~/.ssh/config",
 }
 

@@ -39,5 +39,8 @@ do
 	ln -sf $filepath $option/$filename 2>> $HOME/.dotfiles/symlink_log && echo "Created symlink for $filename in path $option.";
 done
 
+# Special files that are not dotfiles:
+	ln -s ./nvim/init.lua ~/.config/nvim/init.lua 2>> $HOME/.dotfiles/symlink_log && echo 'Created symlink for init.lua in path ~/.config/nvim/init.lua.';
+	ln -s ./nvim/vimrc.vim ~/.config/nvim/vimrc.vim 2>> $HOME/.dotfiles/symlink_log && echo 'Created symlink for vimrc.vim in path ~/.config/nvim/vimrc.vim.';
 # Add newline after each write to the log:
 echo "" >> $HOME/.dotfiles/symlink_log
