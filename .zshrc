@@ -124,6 +124,7 @@ alias drive="cd ~/Desktop/Drive"
 # Must be used with -in, -out flags
 alias enc="openssl enc -aes-256-cbc -salt"
 alias decrypt="openssl enc -d -aes-256-cbc"
+alias bk="cd $OLDPWD"
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/orian/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
