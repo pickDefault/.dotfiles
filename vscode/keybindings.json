@@ -421,7 +421,8 @@
     },
     /* {
         "key": "ctrl+w",
-        "command": "",
-        "when": ""
+        "command": "vscode-neovim.send",
+        "when": "neovim.mode == 'insert' && editorTextFocus",
+        "args": "<C-w>"
     } */
 ]
