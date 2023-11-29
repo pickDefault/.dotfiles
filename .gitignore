@@ -1,3 +1,7 @@
 *\.DS_Store
 symlink_log
-to_be_ignored
+.ssh/
+.vim/pack/
+.zshrc-personal
+git_token_ubuntu.enc
+nvim/lua/patch_lightspeed.lua
