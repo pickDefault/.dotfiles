@@ -439,6 +439,17 @@
         "command": "-editor.action.moveLinesUpAction",
         "when": "editorTextFocus && !editorReadonly"
     },
+    {
+        "key": "ctrl+w",
+        "command": "vscode-neovim.send",
+        "when": "editorTextFocus && neovim.ctrlKeysInsert.w && neovim.init && neovim.mode == 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'",
+        "args": "<C-w>"
+    },
+    /* {
+        "key": "ctrl+w",
+        "command": "-vscode-neovim.send",
+        "when": "editortextfocus && neovim.ctrlkeysinsert.w && neovim.init && neovim.mode == 'insert' && editorlangid not in 'neovim.editorlangidexclusions'"
+    }, */
     /* {
         "key": "ctrl+w",
         "command": "vscode-neovim.send",
