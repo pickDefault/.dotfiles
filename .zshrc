@@ -4,8 +4,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-if [[ "${hostname}" = "Orians-MacBook-Pro.local" ]]; then
-    ./.zshrc-personal
+if [[ "${HOST}" = "Orians-MacBook-Pro.local" ]] || [[ "${HOST}" = "Orians-MBP" ]]; then
+    source .zshrc-personal
 fi
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
