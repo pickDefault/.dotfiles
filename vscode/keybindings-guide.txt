@@ -1,6 +1,7 @@
 -- Mnemonical shortcuts:
     -- Ctrl + S to [S]plit
         -- J to [J]oin current editor side by side
+        -- Shift + J to toggle layout
         -- D to [D]uplicate
             -- H, J, K, L to choose where to split
         -- M to [M]ove
@@ -12,7 +13,8 @@
         -- 
     -- Ctrl + Shift + = (Which is actually Ctrl + '+') to increase size
     -- Ctrl + - to decrease size
-
+    -- Command + K prefix
+        -- M to select language
     -- Space to enter code navigation and manipulation
         -- Space + g + d - [G]o to [D]efiniton
         -- Space + r + f - [R]e[F]actor
