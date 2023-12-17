@@ -5,7 +5,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 if [[ "${HOST}" = "Orians-MacBook-Pro.local" ]] || [[ "${HOST}" = "Orians-MBP" ]]; then
-    source .zshrc-personal
+    source ~/.dotfiles/.zshrc-personal
 fi
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -123,7 +123,10 @@ alias c="code"
 # Must be used with -in, -out flags
 alias enc="openssl enc -aes-256-cbc -salt"
 alias decrypt="openssl enc -d -aes-256-cbc"
-alias bk="cd $OLDPWD"
+alias bk='cd $OLDPWD'
+# Switch behaviours of 'l' and 'la' aliases
+alias l='ls -lAh'
+alias la='ls -lah'
 
 # Personal customizations;
 # 	Case-insensitive globbing
