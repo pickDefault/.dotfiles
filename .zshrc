@@ -82,7 +82,12 @@ plugins=(
 	tmux
 	fzf
 	fzf-tab
+	
+	zsh-syntax-highlighting
 )
+
+# zsh-syntax-highlighting must be last
+
 ZSH_TMUX_AUTOSTART=true
 source $ZSH/oh-my-zsh.sh
 
@@ -183,3 +188,9 @@ export FZF_DEFAULT_OPTS="-m -x --bind ctrl-space:select,ctrl-x:deselect,tab:down
 #   tmux set -g prefix c-q
 #   tmux bind c-q send-prefix
 # fi
+
+export PATH="/usr/local/texlive/2023/bin/universal-darwin:$PATH"
+
+# zsh-syntax-highlighting config:
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS+=(brackets cursor)
