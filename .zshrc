@@ -6,6 +6,8 @@ export ZSH="$HOME/.oh-my-zsh"
 
 if [[ "${hostname}" = "Orians-MacBook-Pro.local" ]]; then
     ./.zshrc-personal
+#else if [[ "${hostname}" = "turtle86" ]]; then
+#	tmux source "/home/turtle/.dotfiles/.tmux.conf.turtle"
 fi
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -123,7 +125,7 @@ alias c="code"
 # Must be used with -in, -out flags
 alias enc="openssl enc -aes-256-cbc -salt"
 alias decrypt="openssl enc -d -aes-256-cbc"
-alias bk="cd $OLDPWD"
+alias bk='cd $OLDPWD'
 
 # Personal customizations;
 # 	Case-insensitive globbing
@@ -172,11 +174,3 @@ export FZF_CTRL_T_COMMAND='find . \! \( -type d -path ./.git -prune \) \! -type 
 
 # In fzf, multi-select with Ctrl-Space and remove selection with Ctrl-X
 export FZF_DEFAULT_OPTS="-m -x --bind ctrl-space:select,ctrl-x:deselect,tab:down,shift-tab:up"
-
-# https://unix.stackexchange.com/questions/108182/tmux-conf-prefix-depends-on-whether-session-is-remote
-# If machine is in a remote session, change the prefix
-# if [[ -n "$SSH_CLIENT" && -n "$TMUX" ]] ; then
-#   tmux unbind c-a
-#   tmux set -g prefix c-q
-#   tmux bind c-q send-prefix
-# fi
