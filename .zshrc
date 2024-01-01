@@ -84,7 +84,12 @@ plugins=(
 	tmux
 	fzf
 	fzf-tab
+	
+	zsh-syntax-highlighting
 )
+
+# zsh-syntax-highlighting must be last
+
 ZSH_TMUX_AUTOSTART=true
 source $ZSH/oh-my-zsh.sh
 
@@ -126,6 +131,9 @@ alias c="code"
 alias enc="openssl enc -aes-256-cbc -salt"
 alias decrypt="openssl enc -d -aes-256-cbc"
 alias bk='cd $OLDPWD'
+# Switch behaviours of 'l' and 'la' aliases
+alias l='ls -lAh'
+alias la='ls -lah'
 
 # Personal customizations;
 # 	Case-insensitive globbing
@@ -174,3 +182,7 @@ export FZF_CTRL_T_COMMAND='find . \! \( -type d -path ./.git -prune \) \! -type 
 
 # In fzf, multi-select with Ctrl-Space and remove selection with Ctrl-X
 export FZF_DEFAULT_OPTS="-m -x --bind ctrl-space:select,ctrl-x:deselect,tab:down,shift-tab:up"
+
+# zsh-syntax-highlighting config:
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS+=(brackets cursor)

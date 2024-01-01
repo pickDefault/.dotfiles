@@ -15,3 +15,7 @@ map <expr> , g:lightspeed_last_motion == 'sx' ? "<Plug>Lightspeed_,_sx" : "<Plug
 noremap R s
 " If search is bidirectional, we should revert to S native behaviour
 noremap S S
+
+" Substitute ^ and _ behaviour
+noremap ^ _
+noremap _ ^

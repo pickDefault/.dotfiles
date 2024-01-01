@@ -45,13 +45,15 @@
   // INTEGRATED TERMINAL SETTINGS:
   "editor.fontFamily": "'DejaVu Sans Mono for Powerline'",
   "terminal.integrated.fontSize": 16,
+  // Make right click be sent to terminal when in integrated terminal:
   "terminal.integrated.rightClickBehavior": "nothing",
+  // Select text in terminal as usual by holding Option:
+  "terminal.integrated.macOptionClickForcesSelection": true,
   
   // editor?
   "editor.lineNumbers": "relative",
   "workbench.settings.applyToAllProfiles": [
     "editor.lineNumbers",
-    "clangd.path"
   ],
   "editor.fontSize": 16,
   // Removes the close tab button. Use Control + W instead.
@@ -95,5 +97,6 @@
     ],
     "git.openRepositoryInParentFolders": "never",
     "remote.SSH.configFile": "~/.ssh/config",
+    "remote.SSH.localServerDownload": "off",
 }
 
