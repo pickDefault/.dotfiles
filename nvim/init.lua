@@ -349,6 +349,11 @@ else
             })
         end
     },
+    {
+        "ggandor/lightspeed.nvim",
+        event = "BufRead",
+    },
+
   --    {
   --  "m4xshen/autoclose.nvim",
   --  config = function()

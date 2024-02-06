@@ -133,6 +133,9 @@ alias bk='cd $OLDPWD'
 alias l='ls -lAh'
 alias la='ls -lah'
 
+# custom ZSH options:
+setopt extendedglob
+
 # Personal customizations;
 # 	Case-insensitive globbing
 unsetopt CASE_GLOB

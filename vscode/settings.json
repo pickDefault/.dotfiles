@@ -4,11 +4,10 @@
   },
   "editor.accessibilitySupport": "off",
   "editor.minimap.enabled": false,
-  "python.defaultInterpreterPath": "/Users/orian/Desktop/Drive/SQL/sql_env/bin/python",
+  "python.defaultInterpreterPath": "/Users/orian/anaconda3/envs/jupyterlab/bin/python",
   "terminal.integrated.enableMultiLinePasteWarning": false,
-  "window.zoomLevel": 1,
-  "workbench.colorTheme": "Monokai",
   "terminal.integrated.env.osx": {
+    "PATH": "${env:PATH}"
   },
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
@@ -38,7 +37,7 @@
   "workbench.activityBar.location": "hidden",
   "[c]": {
 
-    "editor.wordBasedSuggestions": true,
+    "editor.wordBasedSuggestions": "matchingDocuments",
     "editor.suggest.insertMode": "replace",
     "editor.semanticHighlighting.enabled": true
   },
@@ -98,5 +97,51 @@
     "git.openRepositoryInParentFolders": "never",
     "remote.SSH.configFile": "~/.ssh/config",
     "remote.SSH.localServerDownload": "off",
+    "workbench.editor.tabActionCloseVisibility": false,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "latex-workshop.latex.tools": [
+  {
+    "name": "latexmk",
+    "command": "latexmk",
+    "args": [
+      "-synctex=1",
+      "-interaction=nonstopmode",
+      "-file-line-error",
+      "-pdf",
+      "-outdir=%OUTDIR%",
+      "-xelatex",
+      "%DOC%"
+    ],
+    "env": {
+      "PATH": "/usr/local/texlive/2023/bin/universal-darwin:/opt/homebrew/opt/llvm/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Library/Frameworks/Python.framework/Versions/3.11/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Library/TeX/texbin:/Users/orian/anaconda3/condabin:/opt/homebrew/opt/llvm/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Library/Frameworks/Python.framework/Versions/3.11/bin"
+    }
+  },
+  {
+    "name": "pdflatex",
+    "command": "pdflatex",
+    "args": [
+      "-synctex=1",
+      "-interaction=nonstopmode",
+      "-file-line-error",
+      "%DOC%"
+    ],
+    "env": {
+      "PATH": "/usr/local/texlive/2023/bin/universal-darwin:/opt/homebrew/opt/llvm/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Library/Frameworks/Python.framework/Versions/3.11/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Library/TeX/texbin:/Users/orian/anaconda3/condabin:/opt/homebrew/opt/llvm/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Library/Frameworks/Python.framework/Versions/3.11/bin"
+    }
+  },
+  {
+    "name": "bibtex",
+    "command": "bibtex",
+    "args": [
+      "%DOCFILE%"
+    ],
+    "env": {
+      "PATH": "/usr/local/texlive/2023/bin/universal-darwin:/opt/homebrew/opt/llvm/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Library/Frameworks/Python.framework/Versions/3.11/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Library/TeX/texbin:/Users/orian/anaconda3/condabin:/opt/homebrew/opt/llvm/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Library/Frameworks/Python.framework/Versions/3.11/bin"
+    }
+  }
+],
+"redhat.telemetry.enabled": true,
+"terminal.integrated.fontFamily": "Ubuntu Mono derivative Powerline",
+"window.zoomLevel": 1,
+"terminal.integrated.tabs.defaultColor": "terminal.ansiBlack"
 }
-

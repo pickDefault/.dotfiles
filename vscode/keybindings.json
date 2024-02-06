@@ -34,7 +34,7 @@
         "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
     },
     {
-        "key": "cmd+0",
+        "key": "cmd+9",
         "command": "workbench.action.lastEditorInGroup"
     },
     {
@@ -68,10 +68,6 @@
     {
         "key": "cmd+8",
         "command": "workbench.action.openEditorAtIndex8"
-    },
-    {
-        "key": "cmd+9",
-        "command": "workbench.action.openEditorAtIndex9"
     },
     {
         "key": "ctrl+1",
@@ -194,10 +190,6 @@
         "key": "shift+cmd+d",
         "command": "-workbench.view.debug",
         "when": "viewContainer.workbench.view.debug.enabled"
-    },
-    {
-        "key": "shift+cmd+d",
-        "command": "editor.action.addSelectionToPreviousFindMatch"
     },
     {
         "key": "ctrl+w k",
@@ -445,6 +437,44 @@
         "when": "editorTextFocus && neovim.ctrlKeysInsert.w && neovim.init && neovim.mode == 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'",
         "args": "<C-w>"
     },
+    {
+        "key": "ctrl+0",
+        "command": "-workbench.action.lastEditorInGroup"
+    },
+    {
+        "key": "ctrl+9",
+        "command": "-workbench.action.openEditorAtIndex9"
+    },
+    {
+        "key": "alt+cmd+k",
+        "command": "-keybindings.editor.recordSearchKeys",
+        "when": "inKeybindings && inKeybindingsSearch"
+    },
+    {
+        "key": "alt+cmd+k",
+        "command": "editor.action.insertCursorAbove",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+cmd+up",
+        "command": "-editor.action.insertCursorAbove",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+cmd+j",
+        "command": "editor.action.insertCursorBelow",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+cmd+down",
+        "command": "-editor.action.insertCursorBelow",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+d",
+        "command": "-editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
     /* {
         "key": "ctrl+w",
         "command": "-vscode-neovim.send",
@@ -456,4 +486,16 @@
         "when": "neovim.mode == 'insert' && editorTextFocus",
         "args": "<C-w>"
     } */
+    {
+        "args": "<C-b>",
+        "command": "vscode-neovim.send",
+        "key": "cmd+d",
+        "when": "editorFocus && neovim.init"
+    },
+    {
+        "args": "<C-m>",
+        "command": "vscode-neovim.send",
+        "key": "cmd+shift+d",
+        "when": "editorFocus && neovim.init"
+    },
 ]
