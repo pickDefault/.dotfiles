@@ -4,8 +4,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-if [[ "${HOST}" = "Orians-MacBook-Pro.local" ]] || [[ "${HOST}" = "Orians-MBP" ]]; then
-    source ~/.dotfiles/.zshrc-personal
+if [[ "${hostname}" = "Orians-MacBook-Pro.local" ]]; then
+    ./.zshrc-personal
+#else if [[ "${hostname}" = "turtle86" ]]; then
+#	tmux source "/home/turtle/.dotfiles/.tmux.conf.turtle"
 fi
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -186,6 +188,7 @@ export FZF_CTRL_T_COMMAND='find . \! \( -type d -path ./.git -prune \) \! -type 
 # In fzf, multi-select with Ctrl-Space and remove selection with Ctrl-X
 export FZF_DEFAULT_OPTS="-m -x --bind ctrl-space:select,ctrl-x:deselect,tab:down,shift-tab:up"
 
+<<<<<<< HEAD
 # https://unix.stackexchange.com/questions/108182/tmux-conf-prefix-depends-on-whether-session-is-remote
 # If machine is in a remote session, change the prefix
 # if [[ -n "$SSH_CLIENT" && -n "$TMUX" ]] ; then
@@ -217,4 +220,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
