@@ -4,7 +4,7 @@
   },
   "editor.accessibilitySupport": "off",
   "editor.minimap.enabled": false,
-  "python.defaultInterpreterPath": "/Users/orian/anaconda3/envs/jupyterlab/bin/python",
+  "python.defaultInterpreterPath": "/Users/orian/anaconda3/bin/python",
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "terminal.integrated.env.osx": {
     "PATH": "${env:PATH}"
@@ -143,5 +143,8 @@
 "redhat.telemetry.enabled": true,
 "terminal.integrated.fontFamily": "Ubuntu Mono derivative Powerline",
 "window.zoomLevel": 1,
-"terminal.integrated.tabs.defaultColor": "terminal.ansiBlack"
+"terminal.integrated.tabs.defaultColor": "terminal.ansiBlack",
+"window.commandCenter": false,
+"debug.internalConsoleOptions": "neverOpen",
+"debug.openDebug": "openOnSessionStart"
 }

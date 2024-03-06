@@ -3,3 +3,5 @@
 	name = pickDefault
 [core]
 	editor = vim
+[init]
+	defaultBranch = main

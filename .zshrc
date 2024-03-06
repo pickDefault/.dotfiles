@@ -132,6 +132,8 @@ alias bk='cd $OLDPWD'
 # Switch behaviours of 'l' and 'la' aliases
 alias l='ls -lAh'
 alias la='ls -lah'
+# markdown to pdf:
+alias md2pdf="~/.dotfiles/md2pdf.sh"
 
 # custom ZSH options:
 setopt extendedglob
@@ -193,7 +195,26 @@ export FZF_DEFAULT_OPTS="-m -x --bind ctrl-space:select,ctrl-x:deselect,tab:down
 # fi
 
 export PATH="/usr/local/texlive/2023/bin/universal-darwin:$PATH"
+export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
 
 # zsh-syntax-highlighting config:
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS+=(brackets cursor)
+
+# should be at EOF
+eval "$(zoxide init zsh)"
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/orian/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/orian/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/orian/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/orian/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
