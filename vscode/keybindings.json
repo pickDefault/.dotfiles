@@ -475,27 +475,8 @@
         "command": "-editor.action.addSelectionToNextFindMatch",
         "when": "editorFocus"
     },
-    /* {
-        "key": "ctrl+w",
-        "command": "-vscode-neovim.send",
-        "when": "editortextfocus && neovim.ctrlkeysinsert.w && neovim.init && neovim.mode == 'insert' && editorlangid not in 'neovim.editorlangidexclusions'"
-    }, */
-    /* {
-        "key": "ctrl+w",
-        "command": "vscode-neovim.send",
-        "when": "neovim.mode == 'insert' && editorTextFocus",
-        "args": "<C-w>"
-    } */
     {
-        "args": "<C-b>",
-        "command": "vscode-neovim.send",
         "key": "cmd+d",
-        "when": "editorFocus && neovim.init"
-    },
-    {
-        "args": "<C-m>",
-        "command": "vscode-neovim.send",
-        "key": "cmd+shift+d",
-        "when": "editorFocus && neovim.init"
-    },
+        "command": "editor.action.addSelectionToNextFindMatch"
+    }
 ]
