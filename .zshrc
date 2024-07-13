@@ -13,7 +13,7 @@ fi
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="robbyrussell"
 #echo "Theme: $RANDOM_THEME"
 
 # Set list of themes to pick from when loading at random
@@ -188,7 +188,6 @@ export FZF_CTRL_T_COMMAND='find . \! \( -type d -path ./.git -prune \) \! -type 
 # In fzf, multi-select with Ctrl-Space and remove selection with Ctrl-X
 export FZF_DEFAULT_OPTS="-m -x --bind ctrl-space:select,ctrl-x:deselect,tab:down,shift-tab:up"
 
-<<<<<<< HEAD
 # https://unix.stackexchange.com/questions/108182/tmux-conf-prefix-depends-on-whether-session-is-remote
 # If machine is in a remote session, change the prefix
 # if [[ -n "$SSH_CLIENT" && -n "$TMUX" ]] ; then
