@@ -5,3 +5,4 @@ symlink_log
 .zshrc-personal
 git_token_ubuntu.enc
 nvim/lua/patch_lightspeed.lua
+nvim/openai_api_key
