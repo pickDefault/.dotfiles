@@ -131,8 +131,6 @@ if not vim.g.vscode then
   -- vim.opt.foldenable = true          -- Automatically fold when opeining file
   -- vim.opt.fillchars = { fold = " " } -- Filler for folded line
 
-  vim.lsp.inlay_hint.enable()
-
   -- Set theme
   local theme = require("theme").theme
   vim.cmd([[colorscheme ]] .. theme)
@@ -140,6 +138,11 @@ if not vim.g.vscode then
   -- https://github.com/neovim/neovim/issues/15083#issuecomment-2101929393
   vim.cmd(
     [[set wildignore+=blue.vim,darkblue.vim,delek.vim,desert.vim,elflord.vim,evening.vim,industry.vim,koehler.vim,lunaperche.vim,morning.vim,murphy.vim,pablo.vim,peachpuff.vim,quiet.vim,retrobox.vim,ron.vim,shine.vim,slate.vim,sorbet.vim,torte.vim,wildcharm.vim,zaibatsu.vim,zellner.vim,habamax.vim]])
+
+  vim.cmd([[set wildoptions+=fuzzy]])
+
+  -- adds a command :A, just like :argedit but pressing Tab only completes filenames from the arglist
+  vim.cmd([[command! -nargs=1 -complete=arglist A argedit <args> | argdedupe]])
 
   -- [[ Basic Keymaps ]]
   -- vim.cmd([[map <leader>\ :lua MiniFiles.open()<cr>]])
@@ -149,14 +152,14 @@ if not vim.g.vscode then
   -- See `:help vim.keymap.set()`
   vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true }) -- zmochi note: disables space from moving forwards
 
-  vim.keymap.set('n', '<C-q>', function()
-    if #vim.fn.getbufinfo({ buflisted = 1 }) == 1 then
-      vim.cmd.q()
-    else
-      vim.cmd.bd()
-    end -- if
-  end)  -- function
-  vim.keymap.set('n', '<C-s>', vim.cmd.w)
+  -- vim.keymap.set('n', '<C-q>', function()
+  --   if #vim.fn.getbufinfo({ buflisted = 1 }) == 1 then
+  --     vim.cmd.q()
+  --   else
+  --     vim.cmd.bd()
+  --   end -- if
+  -- end)  -- function
+  -- vim.keymap.set('n', '<C-s>', vim.cmd.w)
 
   -- For some reason <C-f> scrolls the file by default in normal mode
   vim.keymap.set({ 'n', 'v' }, '<C-f>', '<Nop>')
@@ -177,22 +180,18 @@ if not vim.g.vscode then
   -- vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t)
   -- vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
 
+  -- :vsplit to split window right/below instead of left/above
+  vim.cmd([[set splitright]])
+  vim.cmd([[set splitbelow]])
   -- Moving between windows
-
-  -- Moving between tabs
-  -- vim.keymap.set({ 'n', 'v' }, 'gT', function()
-  --   vim.cmd("norm gT")
-  --   vim.cmd.stopinsert()
-  -- end)
-  --
-  -- vim.keymap.set({ 'n', 'v' }, 'gt', function()
-  --   vim.cmd("norm gt")
-  --   vim.cmd.stopinsert()
-  -- end)
 
   -- Remap for dealing with word wrap
   vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { silent = true, expr = true })
   vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { silent = true, expr = true })
+
+  vim.diagnostic.config({
+    virtual_text = false
+  })
 
   -- [[ Highlight on yank ]]
   -- See `:help vim.highlight.on_yank()`

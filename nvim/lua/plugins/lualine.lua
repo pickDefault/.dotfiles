@@ -37,14 +37,14 @@ return {
         lualine_c = { 'branch', 'diff', 'diagnostics' },
         lualine_x = {},
         lualine_y = { function()
-          return vim.fn.getcwd()
+          return string.gsub(vim.fn.getcwd(), os.getenv("HOME") or "", "~")
         end },
         lualine_z = {
-          { "location",
-            cond = function()
-              return vim.fn.mode():find("[Vv]") == nil
-            end
-          },
+          -- { "location",
+          --   cond = function()
+          --     return vim.fn.mode():find("[Vv]") == nil
+          --   end
+          -- },
           {
             get_selection_count,
             cond = function()

@@ -110,9 +110,5 @@ return {
 
     -- Make error message not appear automatically following the code that causes error
     -- From https://stackoverflow.com/questions/69290794/nvim-lsp-change-lspconfig-diagnostic-message-location
-
-    vim.diagnostic.config({
-      virtual_text = false
-    })
   end,
 }
