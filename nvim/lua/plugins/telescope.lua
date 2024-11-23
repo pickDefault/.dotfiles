@@ -56,13 +56,15 @@ return {
     --
     -- -- See `:help telescope.builtin`
     vim.keymap.set('n', '<leader>of', function()
-      require('telescope.builtin').oldfiles({
+      require('telescope.builtin').oldfiles(require('telescope.themes').get_dropdown {
+        winblend = 10,
         previewer = false
       })
     end, { desc = 'Search [O]ld [F]iles' })
 
     vim.keymap.set('n', '<leader>b', function()
-      require('telescope.builtin').buffers({
+      require('telescope.builtin').buffers(require('telescope.themes').get_dropdown {
+        winblend = 10,
         previewer = false
       })
     end, { desc = '[ ] Find existing buffers' })
@@ -77,21 +79,27 @@ return {
     --
     -- vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
     vim.keymap.set('n', '<leader>sf', function()
-      require('telescope.builtin').find_files({
+      require('telescope.builtin').find_files(require('telescope.themes').get_dropdown {
+        winblend = 10,
         previewer = false
       })
     end, { desc = '[S]earch [F]iles' })
     vim.keymap.set('n', '<leader>sh', function()
-      require('telescope.builtin').help_tags({
+      require('telescope.builtin').help_tags(require('telescope.themes').get_dropdown {
+        winblend = 10,
         previewer = false
       })
     end, { desc = '[S]earch [H]elp' })
 
     vim.keymap.set('n', '<leader>ch', function()
-      require('telescope.builtin').command_history({})
+      require('telescope.builtin').command_history(require('telescope.themes').get_dropdown {
+        winblend = 10,
+      })
     end, { desc = '[C]ommand [H]istory' })
+
     vim.keymap.set('n', '<leader>sg', function()
-      require('telescope.builtin').grep_string({
+      require('telescope.builtin').grep_string(require('telescope.themes').get_dropdown {
+        winblend = 10,
         path_display = { 'smart' },
         only_sort_text = true,
         word_match = "-w",
@@ -99,11 +107,24 @@ return {
       })
     end, { desc = '[S]earch by [G]rep' })
     vim.keymap.set('n', '<leader>sw', require('telescope.builtin').live_grep, { desc = '[S]earch current [W]ord' })
-    vim.keymap.set('n', '<leader>sa', require('telescope.builtin').builtin, { desc = '[S]earch Telescope [A]ctions' })
+
+    vim.keymap.set('n', '<leader>sa',
+      function()
+        require('telescope.builtin').builtin(require('telescope.themes').get_dropdown {
+          winblend = 10,
+        })
+      end, { desc = '[S]earch Telescope [A]ctions' })
+
     vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
     vim.keymap.set('n', '<leader>rs', require('telescope.builtin').resume, { desc = 'Search [R]esume' })
-    vim.keymap.set('n', '<leader>ss', require('telescope.builtin').lsp_dynamic_workspace_symbols,
+
+    vim.keymap.set('n', '<leader>ss', function()
+        require('telescope.builtin').lsp_dynamic_workspace_symbols(require('telescope.themes').get_dropdown {
+          winblend = 10,
+        })
+      end,
       { desc = '[S]earch [S]ymbols' })
+
     vim.keymap.set('n', '<leader>sm',
       function() require('telescope.builtin').man_pages({ sections = { '1', '2', '3' } }) end,
       { desc = '[S]earch [M]anpages' })

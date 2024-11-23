@@ -11,8 +11,17 @@ return {
     -- Additional lua configuration, makes nvim stuff amazing!
     'folke/neodev.nvim',
   },
+  -- opts = {
+  --   servers = {
+  --     clangd = {
+  --       mason = false,
+  --       capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  --       cmd = { "clangd", "--log=verbose", }
+  --     }
+  --   }
+  -- },
   config = function()
-    require('neodev').setup()
+    -- require('neodev').setup()
     -- local capabilities = require('cmp_nvim_lsp').default_capabilities();
     -- local lspconfig = require("lspconfig");
     --
@@ -21,7 +30,9 @@ return {
     --   cmd = {
     --     'clangd',
     --     '--clang-tidy',
+    --     '--log=verbose',
     --   },
+    --   filetypes = { "c", "h", "cpp", "hpp" },
     -- })
     --
     -- lspconfig.lua_ls.setup({})

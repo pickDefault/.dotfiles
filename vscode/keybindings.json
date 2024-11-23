@@ -108,26 +108,6 @@
     },
     // Scroll through suggestions with tab instead of selecting with tab
     {
-        "key": "tab",
-        "command": "selectNextQuickFix",
-        "when": "editorFocus && quickFixWidgetVisible"
-    },
-    {
-        "key": "shift+tab",
-        "command": "selectPrevQuickFix",
-        "when": "editorFocus && quickFixWidgetVisible"
-    },
-    {
-        "key": "tab",
-        "command": "selectNextSuggestion",
-        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
-    },
-    {
-        "key": "shift+tab",
-        "command": "selectPrevSuggestion",
-        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
-    },
-    {
         "key": "ctrl+cmd+right",
         "command": "-workbench.action.moveEditorToNextGroup"
     },
@@ -136,11 +116,7 @@
         "command": "-workbench.action.moveEditorToPreviousGroup"
     },
     // Resize split editors
-    {
-        "key": "ctrl+=",
-        "command": "workbench.action.increaseViewSize"
-    },
-    {
+	{
         "key": "ctrl+-",
         "command": "workbench.action.decreaseViewSize"
     },
@@ -486,8 +462,9 @@
     },
     {
         "key": "ctrl+d",
-        "command": "-vscode-neovim.send",
-        "when": "editorTextFocus && neovim.ctrlKeysInsert.d && neovim.init && neovim.mode == 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
+        "command": "vscode-neovim.send",
+        "when": "editorTextFocus && neovim.ctrlKeysInsert.d && neovim.init && neovim.mode == 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'",
+        "args": "<C-d>"
     },
     {
         "key": "ctrl+d",
@@ -497,7 +474,7 @@
     {
         "key": "ctrl+d",
         "command": "scrollPageDown",
-        "when": "textInputFocus"
+        "when": "textInputFocus && neovim.mode != 'insert'"
     },
     {
         "key": "cmd+pagedown",
@@ -511,22 +488,102 @@
     },
     {
         "key": "ctrl+u",
-        "command": "-vscode-neovim.send-cmdline",
+        "command": "vscode-neovim.send-cmdline",
         "when": "neovim.init && neovim.mode == 'cmdline'"
     },
     {
         "key": "ctrl+u",
-        "command": "-vscode-neovim.send",
-        "when": "editorTextFocus && neovim.ctrlKeysInsert.u && neovim.init && neovim.mode == 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
+        "command": "vscode-neovim.send",
+        "when": "editorTextFocus && neovim.ctrlKeysInsert.u && neovim.init && neovim.mode == 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'",
+        "args": "<C-u>"
     },
     {
         "key": "ctrl+u",
         "command": "scrollPageUp",
-        "when": "textInputFocus"
+        "when": "textInputFocus && neovim.mode != 'insert'"
     },
     {
         "key": "cmd+pageup",
         "command": "-scrollPageUp",
         "when": "textInputFocus"
-    }
+    },
+    {
+        "key": "tab",
+        "command": "-focusNextRenameSuggestion",
+        "when": "renameInputVisible"
+    },
+    {
+        "key": "shift+tab",
+        "command": "-focusPreviousRenameSuggestion",
+        "when": "renameInputVisible && !renameInputFocused"
+    },
+    {
+        "key": "tab",
+        "command": "-acceptSelectedSuggestion",
+        "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "editor.action.pageDownHover",
+        "when": "editorHoverFocused && neovim.mode != 'insert'"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "-editor.action.pageDownHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "ctrl+u",
+        "command": "editor.action.pageUpHover",
+        "when": "editorHoverFocused && neovim.mode != 'insert'"
+    },
+    {
+        "key": "ctrl+u",
+        "command": "-editor.action.pageUpHover",
+        "when": "editorHoverFocused"
+    },
+    {
+        "key": "ctrl+alt+b",
+        "command": "-C_Cpp_Runner.buildSingleFile",
+        "when": "C_Cpp_Runner:activatedExtension"
+    },
+    {
+        "key": "ctrl+alt+a",
+        "command": "-C_Cpp_Runner.addCmdArgs",
+        "when": "C_Cpp_Runner:activatedExtension"
+	},
+	{
+		"key": "ctrl+w -",
+		"command": "workbench.action.decreaseViewHeight",
+		"when": "!isAuxiliaryWindowFocusedContext && neovim.mode != 'cmdline' && neovim.mode != 'insert'"
+	},
+	{
+		"key": "ctrl+w -",
+		"command": "-workbench.action.decreaseViewHeight",
+		"when": "!editorTextFocus && !isAuxiliaryWindowFocusedContext && !terminalFocus && neovim.mode != 'cmdline'"
+	},
+	{
+		"key": "ctrl+w k",
+		"command": "workbench.action.navigateUp",
+		"when": "!editorTextFocus && neovim.mode != 'cmdline'"
+	},
+	{
+		"key": "ctrl+w k",
+		"command": "-workbench.action.navigateUp",
+		"when": "!editorTextFocus && !terminalFocus && neovim.mode != 'cmdline'"
+	},
+	{
+		"key": "ctrl+w =",
+		"command": "workbench.action.increaseViewHeight",
+		"when": "!isAuxiliaryWindowFocusedContext && neovim.mode != 'cmdline' && neovim.mode != 'insert'"
+	},
+	{
+		"key": "ctrl+w =",
+		"command": "-workbench.action.evenEditorWidths",
+		"when": "!editorTextFocus && !terminalFocus && neovim.mode != 'cmdline'"
+	},
+	{
+		"key": "ctrl+=",
+		"command": "workbench.action.increaseViewSize"
+	}
 ]

@@ -17,8 +17,7 @@ return {
       -- },
       -- Buffer-local options to use for oil buffers
       buf_options = {
-        buflisted = false,
-        bufhidden = "hide",
+        buflisted = true,
       },
       -- Window-local options to use for oil buffers
       win_options = {
@@ -41,7 +40,7 @@ return {
       -- Oil will automatically delete hidden buffers after this delay
       -- You can set the delay to false to disable cleanup entirely
       -- Note that the cleanup process only starts when none of the oil buffers are currently displayed
-      cleanup_delay_ms = 2000,
+      cleanup_delay_ms = false,
       lsp_file_methods = {
         -- Time to wait for LSP file operations to complete before skipping
         timeout_ms = 1000,
@@ -63,12 +62,14 @@ return {
       keymaps = {
         ["g?"] = "actions.show_help",
         ["<CR>"] = "actions.select",
-        ["<C-s>"] = "actions.select_vsplit",
-        ["<C-S>"] = "actions.select_split",
+        ["<C-v>"] = "actions.select_vsplit",
+        ["<C-s>"] = "actions.select_split",
         ["<C-t>"] = "actions.select_tab",
         ["<C-p>"] = "actions.preview",
         ["<C-c>"] = "actions.close",
-        ["<C-l>"] = "actions.refresh",
+        ["<C-l>"] = false,
+        ["<C-h>"] = false,
+        ["<C-x>"] = "actions.refresh",
         ["-"] = "actions.parent",
         ["_"] = "actions.open_cwd",
         ["`"] = "actions.cd",

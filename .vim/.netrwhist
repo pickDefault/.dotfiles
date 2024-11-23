@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =5
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/Users/orian'
 let g:netrw_dirhist_5='/home/turtle/config'
 let g:netrw_dirhist_4='/Users/orian/Desktop/Drive/SQL/sql_env/lib/python3.11/site-packages/pip/_vendor/pygments/filters'
 let g:netrw_dirhist_3='/Users/orian/.ssh'

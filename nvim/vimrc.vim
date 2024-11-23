@@ -8,10 +8,10 @@ noremap ^ _
 noremap _ ^
 
 " Make Ctrl+F and Ctrl+B work right in insert mode
-imap <c-b> <left>
-imap <c-f> <right>
-imap <c-n> <down>
-imap <c-p> <up>
+" imap <c-b> <left>
+" imap <c-f> <right>
+" imap <c-n> <down>
+" imap <c-p> <up>
 
 " Move through Vim tabs with Ctrl+H, Ctrl+L
 " nnoremap <c-h> gT

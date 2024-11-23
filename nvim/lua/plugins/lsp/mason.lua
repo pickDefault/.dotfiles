@@ -32,18 +32,6 @@ return {
       -- nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
       -- nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
-      -- See `:help K` for why this keymap
-      -- zmochi note: Changed keymap below from 'K' to 'gh'
-      -- nmap('gh', function()
-      --   vim.lsp.buf.hover()
-      --   vim.lsp.buf.hover()
-      -- end, 'Hover Documentation')
-      -- nmap('<C-k>', function()
-      --   vim.lsp.buf.signature_help()
-      --   vim.lsp.buf.signature_help()
-      -- end, 'Signature Documentation')
-      -- Mapping for jumping to hover window in insert mode is in nvim-cmp.lua
-
       -- Lesser used LSP functionality
       nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
       nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
@@ -72,20 +60,15 @@ return {
       -- nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
     end
 
+    vim.diagnostic.config({
+      virtual_text = false
+    })
 
     -- mason-lspconfig requires that these setup functions are called in this order
     -- before setting up the servers.
     require('mason').setup()
     require('mason-lspconfig').setup()
 
-    -- Enable the following language servers
-    --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
-    --
-    --  Add any additional override configuration in the following tables. They will be passed to
-    --  the `settings` field of the server config. You must look up that documentation yourself.
-    --
-    --  If you want to override the default filetypes that your language server will attach to you can
-    --  define the property 'filetypes' to the map in question.
     local function which_python()
       local f = io.popen('env which python', 'r') or error("Fail to execute 'env which python'")
       local s = f:read('*a') or error("Fail to read from io.popen result")
@@ -103,8 +86,10 @@ return {
           'c',
           'h',
           'cpp',
+          'hpp',
         },
       },
+      dotls = {},
       jdtls = {
         filetypes = {
           'java'
@@ -148,6 +133,7 @@ return {
           capabilities = capabilities,
           on_attach = on_attach,
           settings = servers[server_name],
+          cmd = (servers[server_name] or {}).cmd,
           filetypes = (servers[server_name] or {}).filetypes,
         }
       end,

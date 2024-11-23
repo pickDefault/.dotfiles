@@ -1,43 +1,4 @@
 if not vim.g.vscode then
-  --[[
-
-  =====================================================================
-  ==================== READ THIS BEFORE CONTINUING ====================
-  =====================================================================
-
-  Kickstart.nvim is *not* a distribution.
-
-  Kickstart.nvim is a template for your own configuration.
-    The goal is that you can read every line of code, top-to-bottom, understand
-    what your configuration is doing, and modify it to suit your needs.
-
-    Once you've done that, you should start exploring, configuring and tinkering to
-    explore Neovim!
-
-    If you don't know anything about Lua, I recommend taking some time to read through
-    a guide. One possible example:
-    - https://learnxinyminutes.com/docs/lua/
-
-
-    And then you can explore or search through `:help lua-guide`
-    - https://neovim.io/doc/user/lua-guide.html
-
-
-  Kickstart Guide:
-
-  I have left several `:help X` comments throughout the init.lua
-  You should run that command and read that help section for more information.
-
-  In addition, I have some `NOTE:` items throughout the file.
-  These are for you, the reader to help understand what is happening. Feel free to delete
-  them once you know what you're doing, but they should serve as a guide for when you
-  are first encountering a few different constructs in your nvim config.
-
-  I hope you enjoy your Neovim journey,
-  - TJ
-
-  P.S. You can delete this when you're done too. It's your config now :)
-  --]]
   -- Set <space> as the leader key
   -- See `:help mapleader`
   --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
@@ -131,6 +92,8 @@ if not vim.g.vscode then
   -- vim.opt.foldenable = true          -- Automatically fold when opeining file
   -- vim.opt.fillchars = { fold = " " } -- Filler for folded line
 
+  require('file_settings')
+
   -- Set theme
   local theme = require("theme").theme
   vim.cmd([[colorscheme ]] .. theme)
@@ -139,14 +102,32 @@ if not vim.g.vscode then
   vim.cmd(
     [[set wildignore+=blue.vim,darkblue.vim,delek.vim,desert.vim,elflord.vim,evening.vim,industry.vim,koehler.vim,lunaperche.vim,morning.vim,murphy.vim,pablo.vim,peachpuff.vim,quiet.vim,retrobox.vim,ron.vim,shine.vim,slate.vim,sorbet.vim,torte.vim,wildcharm.vim,zaibatsu.vim,zellner.vim,habamax.vim]])
 
+  -- ignore lock files in general
+  vim.cmd([[set wildignore+=*.lock]])
+
   vim.cmd([[set wildoptions+=fuzzy]])
 
   -- adds a command :A, just like :argedit but pressing Tab only completes filenames from the arglist
   vim.cmd([[command! -nargs=1 -complete=arglist A argedit <args> | argdedupe]])
 
-  -- [[ Basic Keymaps ]]
+  -- [[ Basic Keymaps/Keybinds ]]
+
   -- vim.cmd([[map <leader>\ :lua MiniFiles.open()<cr>]])
-  vim.cmd([[map <leader>\ <CMD>Oil<CR>]])
+  vim.keymap.set("n", [[<leader>\]], function()
+    vim.cmd("vsplit | wincmd H | vertical resize " .. vim.o.columns / 5)
+    -- re-open Oil buffer if already opened before
+    -- must have cleanup_delay_ms in Oil settings set to false for this to work
+    if OilBufNum then
+      vim.cmd(":b " .. OilBufNum)
+    else
+      require("oil").open()
+      OilBufNum = vim.api.nvim_get_current_buf()
+    end
+  end)
+
+  -- <C-_> also refers to <C-/>
+  vim.keymap.set({ 't' }, '<C-_>', '<C-\\><C-n>', { desc = "switch to normal mode in neovim terminal" })
+  vim.keymap.set({ 'i' }, '<M-BS>', '<C-w>', { desc = "delete word behind cursor in insert mode" })
 
   -- Keymaps for better default experience
   -- See `:help vim.keymap.set()`
@@ -161,12 +142,18 @@ if not vim.g.vscode then
   -- end)  -- function
   -- vim.keymap.set('n', '<C-s>', vim.cmd.w)
 
+  -- function replaceLSP
+
   -- For some reason <C-f> scrolls the file by default in normal mode
   vim.keymap.set({ 'n', 'v' }, '<C-f>', '<Nop>')
 
   -- Moving between buffers
   vim.keymap.set({ 'n' }, ']b', '<CMD>bn<CR>', { desc = "Go to next buffer" })
   vim.keymap.set({ 'n' }, '[b', '<CMD>bp<CR>', { desc = "Go to prev buffer" })
+
+  -- Moving between tabs
+  vim.keymap.set({ 'n' }, ']t', '<CMD>tabnext<CR>', { desc = "Go to next tab" })
+  vim.keymap.set({ 'n' }, '[t', '<CMD>tabprev<CR>', { desc = "Go to prev tab" })
 
   -- local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
   --
@@ -180,7 +167,7 @@ if not vim.g.vscode then
   -- vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t)
   -- vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
 
-  -- :vsplit to split window right/below instead of left/above
+  -- :vsplit and :split to split window right/below instead of left/above
   vim.cmd([[set splitright]])
   vim.cmd([[set splitbelow]])
   -- Moving between windows
@@ -188,10 +175,6 @@ if not vim.g.vscode then
   -- Remap for dealing with word wrap
   vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { silent = true, expr = true })
   vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { silent = true, expr = true })
-
-  vim.diagnostic.config({
-    virtual_text = false
-  })
 
   -- [[ Highlight on yank ]]
   -- See `:help vim.highlight.on_yank()`
