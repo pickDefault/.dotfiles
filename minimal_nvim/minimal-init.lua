@@ -1,8 +1,10 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "c", "h" },
+vim.cmd([[filetype on]])
+
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = { "*.c", "*.h" },
 	callback = function()
 		client_id = vim.lsp.start({
 			name = 'clangd',
@@ -39,6 +41,31 @@ vim.api.nvim_create_autocmd("FileType", {
 		nmap('ge', vim.diagnostic.open_float, 'Open floating diagnostic message')
 		nmap('<leader>q', vim.diagnostic.setloclist, 'Open diagnostics list')
 		nmap('K', vim.lsp.buf.hover, 'Open diagnostics list')
+
+--		local function auto_complete_popup()
+--		  local col = vim.fn.col('.')
+--		  local line = vim.fn.getline('.')
+--		  if vim.fn.pumvisible() then
+--			return
+--		  end
+--		  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-x><C-o>", true, false, true), "n", true)
+--		end
+--
+--		vim.api.nvim_create_autocmd({ "InsertCharPre" }, {
+--		  callback = auto_complete_popup,
+--		  group = vim.api.nvim_create_augroup("LSPAutocomplete", { clear = true }),
+--		})
+
+		local autocmp_key = vim.api.nvim_replace_termcodes('<C-x><C-o>', true, false, true)
+		vim.api.nvim_create_autocmd({ "InsertCharPre" }, {
+			pattern = { "*.c", "*.h" },
+			callback = function()
+				if string.match(vim.v.char, "[%w%c\\._\\-\\>]") ~= nil and vim.fn.pumvisible() ~= 1 then
+					vim.api.nvim_feedkeys(autocmp_key, 'n', true)
+				end
+			end
+		})
+
 	end
 }
 )
@@ -78,7 +105,7 @@ vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone'
+vim.o.completeopt = 'menuone,noinsert,menu'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
@@ -94,6 +121,8 @@ vim.cmd([[colorscheme habamax]])
 vim.cmd([[set wildignore+=*.lock]])
 
 vim.cmd([[set wildoptions+=fuzzy]])
+
+vim.o.foldmethod = "syntax"
 
 -- :vsplit and :split to split window right/below instead of left/above
 vim.cmd([[set splitright]])
